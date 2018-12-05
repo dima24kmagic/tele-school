@@ -1,0 +1,57 @@
+.home {
+  width: 100%;
+  height: 100vh;
+
+  position: relative;
+  .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("./hero-img.jpg") no-repeat center;
+    background-size: cover;
+    z-index: -1;
+    &__overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(#000, 0.6);
+    }
+  }
+  .shutter {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    &--1,
+    &--2 {
+      position: absolute;
+      left: 0;
+      height: 50%;
+      width: 100%;
+      background: #000;
+    }
+    &--1 {
+      top: 0;
+    }
+    &--2 {
+      bottom: 0;
+    }
+  }
+  .intro {
+    height: 100%;
+    &__words {
+      margin-bottom: 20vh;
+      font-weight: 400;
+      padding: 1rem;
+      text-shadow: 3px 3px 0 #000;
+
+      opacity: 0;
+    }
+  }
+}
