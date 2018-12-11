@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from "react";
 import { Route, Router } from "react-router-dom";
-import "./app.scss";
 import history from "../store/history";
 import Home from "./Home/Home";
 

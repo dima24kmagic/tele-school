@@ -44,14 +44,38 @@
     }
   }
   .intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     height: 100%;
+    padding-top: 20vh;
+    padding-bottom: 12vh;
     &__words {
-      margin-bottom: 20vh;
       font-weight: 400;
       padding: 1rem;
-      text-shadow: 3px 3px 0 #000;
+      opacity: 0;
+    }
+    &__btn {
+      font-size: 2rem;
+      background: #000;
+      padding: 1rem 2rem;
+      border: none;
+      outline: none;
+      box-shadow: 0 4px 0 purple;
+      cursor: pointer;
+      transition: box-shadow 0.15s linear, transform 0.15s linear,
+        background 0.15s;
 
       opacity: 0;
+      &:hover {
+        background: #060606;
+      }
+      &:active {
+        box-shadow: none;
+        transform: translateY(4px) !important;
+      }
     }
   }
 }
+
