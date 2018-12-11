@@ -16,7 +16,7 @@ class Home extends Component {
           <div className="bg">
             <div className="bg__overlay" />
           </div>
-           <div className="shutter">
+          <div className="shutter">
             <div className="shutter--1" />
             <div className="shutter--2" />
           </div>
@@ -28,6 +28,15 @@ class Home extends Component {
               Узнать больше
             </button>
           </div>
+        </div>
+        <div className="container info-content">
+          <h1>Какой-то загаловок</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
+            accusantium debitis delectus inventore laboriosam maxime mollitia
+            neque porro quis quisquam rerum, similique vitae. Cumque facilis
+            optio possimus, quo unde ut.
+          </p>
         </div>
       </Fragment>
     );
