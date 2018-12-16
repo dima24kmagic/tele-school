@@ -1,7 +1,7 @@
 {
   "main.css": "/tele-school/static/css/main.bca5a164.chunk.css",
-  "main.js": "/tele-school/static/js/main.712f89c3.chunk.js",
-  "main.js.map": "/tele-school/static/js/main.712f89c3.chunk.js.map",
+  "main.js": "/tele-school/static/js/main.ee47866e.chunk.js",
+  "main.js.map": "/tele-school/static/js/main.ee47866e.chunk.js.map",
   "static/css/1.49e1b1b5.chunk.css": "/tele-school/static/css/1.49e1b1b5.chunk.css",
   "static/js/1.ba092a25.chunk.js": "/tele-school/static/js/1.ba092a25.chunk.js",
   "static/js/1.ba092a25.chunk.js.map": "/tele-school/static/js/1.ba092a25.chunk.js.map",
@@ -11,6 +11,6 @@
   "static/media/home.scss": "/tele-school/static/media/hero-img.5f51e75c.jpg",
   "static/css/main.bca5a164.chunk.css.map": "/tele-school/static/css/main.bca5a164.chunk.css.map",
   "index.html": "/tele-school/index.html",
-  "precache-manifest.92b135356b3e977d9b74b57707c4cf3a.js": "/tele-school/precache-manifest.92b135356b3e977d9b74b57707c4cf3a.js",
+  "precache-manifest.e43e5fd8f808a5e455681a29d6f2bc3c.js": "/tele-school/precache-manifest.e43e5fd8f808a5e455681a29d6f2bc3c.js",
   "service-worker.js": "/tele-school/service-worker.js"
 }
