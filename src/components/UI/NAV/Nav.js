@@ -1,22 +1,43 @@
-import React, { Component, Fragment } from "react";
-import { NavLink } from "react-router-dom";
-import "./nav.scss";
+import React, { Component } from "react";
 import BurgerButton from "../BurgerButton/BurgerButton";
+import NavList from "./NavList/NavList";
+import "./nav.scss";
+import { AnimateNavClose, AnimateNavOpen } from "../../Home/animations";
+
 class Nav extends Component {
+  constructor() {
+    super();
+    this.navItems = [
+      { path: "/", text: "Главная" },
+      { path: "/history", text: "История" },
+      { path: "/achieves", text: "Наши достижения" },
+      { path: "/media", text: "Медиацентр" },
+      { path: "/4teachers", text: "Учителям" }
+    ];
+  }
   state = {
-    isOpen: true
+    isOpen: false
   };
   toggleNav = () => {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
+    const { isOpen } = this.state;
+    if (isOpen) {
+      this.setState({
+        isOpen: !this.state.isOpen
+      });
+      AnimateNavClose();
+    } else {
+      this.setState({ isOpen: !this.state.isOpen });
+      AnimateNavOpen();
+    }
+    
   };
   render() {
     const { isOpen } = this.state;
     return (
-      <Fragment>
+      <div className="navigation">
         <BurgerButton onClick={this.toggleNav} isOpen={isOpen} />
-      </Fragment>
+        <NavList navItems={this.navItems} toggleNav={this.toggleNav} />
+      </div>
     );
   }
 }

@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import "./home.scss";
 import { AnimateHomeIntro } from "./animations";
-import { LinearProgress } from "material-ui";
+
 class Home extends Component {
   componentDidMount() {
     setTimeout(() => {

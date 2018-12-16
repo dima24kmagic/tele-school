@@ -1,5 +1,38 @@
 import TimelineLite from "gsap/TimelineLite";
+import TweenLite from "gsap/TweenLite";
 import { Power4 } from "gsap";
+
+export function AnimateNavOpen() {
+  var navWrapper = document.querySelector(".nav-list");
+  TweenLite.fromTo(
+    navWrapper,
+    0.25,
+    {
+      transform: `translateX(100%)`,
+      ease: Power4.easeInOut
+    },
+    {
+      transform: `translateX(0%)`,
+      ease: Power4.easeInOut
+    }
+  );
+}
+
+export function AnimateNavClose() {
+  var navWrapper = document.querySelector(".nav-list");
+  TweenLite.fromTo(
+    navWrapper,
+    0.5,
+    {
+      transform: `translateX(0%)`,
+      ease: Power4.easeInOut
+    },
+    {
+      transform: `translateX(100%)`,
+      ease: Power4.easeInOut
+    }
+  );
+}
 
 export function AnimateHomeIntro() {
   var shutterContainer = document.querySelector(".shutter");
@@ -33,7 +66,7 @@ export function AnimateHomeIntro() {
     )
     .fromTo(
       introBrn,
-      2,
+      1,
       { transform: `translateY(5px)` },
       { opacity: 1, transform: `translateY(0)` },
       "-=1.6"
