@@ -6,7 +6,7 @@ class Home extends Component {
   componentDidMount() {
     setTimeout(() => {
       AnimateHomeIntro();
-    }, 1500);
+    }, 0);
   }
 
   render() {
