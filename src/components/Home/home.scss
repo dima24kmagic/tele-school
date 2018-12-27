@@ -30,6 +30,8 @@
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 1000;
+    display: none;
     &--1,
     &--2 {
       position: absolute;
@@ -40,9 +42,11 @@
     }
     &--1 {
       top: 0;
+      transform: translateY(-100%);
     }
     &--2 {
       bottom: 0;
+      transform: translateY(100%);
     }
   }
   .intro {
@@ -56,7 +60,6 @@
     &__words {
       font-weight: 400;
       padding: 1rem;
-      opacity: 0;
     }
     &__btn {
       font-size: 2rem;
@@ -68,8 +71,6 @@
       cursor: pointer;
       transition: box-shadow 0.15s linear, transform 0.15s linear,
         background 0.15s;
-
-      opacity: 0;
       &:hover {
         background: #060606;
       }
@@ -83,4 +84,11 @@
 
 .info-content {
   font-size: 1.6rem;
+  p {
+    a {
+      border-bottom: #7e7e7e 1px dashed;
+      text-decoration: none;
+      color: #444;
+    }
+  }
 }

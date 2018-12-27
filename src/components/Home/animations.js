@@ -41,14 +41,27 @@ export function AnimateHomeIntro() {
   var introWords = document.querySelector(".intro__words");
   var introBrn = document.querySelector(".intro__btn");
   var tl = new TimelineLite();
-  tl.to(shutterTop, 5, {
-    transform: `translateY(-100%)`,
-    display: "none",
-    ease: Power4.easeInOut
-  })
-    .to(
+  tl.to(shutterContainer, 0, { display: "block" })
+    .fromTo(
+      shutterTop,
+      5,
+      {
+        transform: `translateY(0%)`,
+        ease: Power4.easeInOut
+      },
+      {
+        transform: `translateY(-100%)`,
+        display: "none",
+        ease: Power4.easeInOut
+      }
+    )
+    .fromTo(
       shutterBot,
       5,
+      {
+        transform: `translateY(0%)`,
+        ease: Power4.easeInOut
+      },
       {
         transform: `translateY(100%)`,
         display: "none",
@@ -60,14 +73,14 @@ export function AnimateHomeIntro() {
     .fromTo(
       introWords,
       2,
-      { transform: `translateY(-5px)` },
+      { opacity: 0, transform: `translateY(-5px)` },
       { opacity: 1, transform: `translateY(0)` },
       "-=2"
     )
     .fromTo(
       introBrn,
       1,
-      { transform: `translateY(5px)` },
+      { opacity: 0, transform: `translateY(5px)` },
       { opacity: 1, transform: `translateY(0)` },
       "-=1.6"
     );

@@ -19,17 +19,19 @@ class Nav extends Component {
     isOpen: false
   };
   toggleNav = () => {
-    const { isOpen } = this.state;
-    if (isOpen) {
-      this.setState({
-        isOpen: !this.state.isOpen
-      });
-      AnimateNavClose();
-    } else {
-      this.setState({ isOpen: !this.state.isOpen });
-      AnimateNavOpen();
+    const width = window.innerWidth;
+    if (width <= 768) {
+      const { isOpen } = this.state;
+      if (isOpen) {
+        this.setState({
+          isOpen: !this.state.isOpen
+        });
+        AnimateNavClose();
+      } else {
+        this.setState({ isOpen: !this.state.isOpen });
+        AnimateNavOpen();
+      }
     }
-    
   };
   render() {
     const { isOpen } = this.state;

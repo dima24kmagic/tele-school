@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import YouTube from "react-youtube";
 import "./media.scss";
+import YouTubeVideo from "../YouTubeVideo/YouTubeVideo";
+
 const API_KEY = "AIzaSyDFojVxzl4zgtj-bJSiL5vNhtNuAeO4Gn0";
 const PLAYLIST_ID = "PLF9nSOO5SmunZVbDYXotvPiZX3D8RwOjY";
 const CHANNEL_ID = "UCjGcnm6uamUtmvG4pGPgigA";
@@ -32,17 +33,16 @@ class MediaCenter extends Component {
     )).data.items;
   };
 
-  onVideoReady = e => {
-    e.target.pauseVideo();
+  getHighestThumbnailUrl = thumbnails => {
+    const high = thumbnails.high;
+    const standard = thumbnails.standard;
+    const maxres = thumbnails.maxres;
+    if (maxres) return maxres;
+    if (standard) return standard;
+    if (high) return high;
   };
   render() {
     const { videos } = this.state;
-    const opts = {
-      playerVars: {
-        // https://developers.google.com/youtube/player_parameters
-        autoplay: 0
-      }
-    };
     return (
       <div className="media-wrapper">
         <div className="display-1">Школьные видео</div>
@@ -50,16 +50,19 @@ class MediaCenter extends Component {
           {videos &&
             videos.map(video => {
               const { id, snippet } = video;
-              const { resourceId } = snippet;
+              const { resourceId, thumbnails, title } = snippet;
               const { videoId } = resourceId;
+              const thumbPath = this.getHighestThumbnailUrl(thumbnails).url;
               return (
-                <YouTube
-                  className="video"
-                  key={id}
-                  videoId={videoId}
-                  opts={opts}
-                  onReady={this.onVideoReady}
-                />
+                <div className="video" key={videoId}>
+                  <YouTubeVideo
+                    videoID={videoId}
+                    iClassName={"video__frame"}
+                    thumbClassName={"video__thumb"}
+                    thumbPath={thumbPath}
+                    videoTitle={title}
+                  />
+                </div>
               );
             })}
         </div>
