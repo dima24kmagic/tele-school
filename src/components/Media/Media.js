@@ -3,7 +3,7 @@ import axios from "axios";
 import "./media.scss";
 import YouTubeVideo from "../YouTubeVideo/YouTubeVideo";
 
-const API_KEY = "AIzaSyDFojVxzl4zgtj-bJSiL5vNhtNuAeO4Gn0";
+const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 const PLAYLIST_ID = "PLF9nSOO5SmunZVbDYXotvPiZX3D8RwOjY";
 const CHANNEL_ID = "UCjGcnm6uamUtmvG4pGPgigA";
 
