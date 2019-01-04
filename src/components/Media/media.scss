@@ -17,15 +17,21 @@
     }
   }
   .video {
-    width: 100%;
+    $btn_radius: 5rem;
+    $triangleSize: 10px;
+    width: 90%;
     height: 40vh;
-    border-radius: 4px;
+    min-height: 20rem;
+    //border-radius: 4px;
     overflow: hidden;
     position: relative;
     cursor: pointer;
     @media (min-width: 768px) {
-      width: 30%;
+      width: 210px;
+      height: 180px;
       margin-bottom: 2rem !important;
+      $btn_radius: 6rem;
+      $triangleSize: 12px;
     }
     &:not(:last-child) {
       margin-bottom: 1rem;
@@ -37,11 +43,16 @@
       height: 10%;
       font-size: 1.6rem;
       font-weight: bold;
-
+      line-height: 1.6rem;
+      margin-top: 1rem;
     }
     &__thumb {
+      @media (min-width: 768px) {
+        width: 210px;
+        height: 118px;
+      }
       width: 100%;
-      height: 90%;
+      height: 80%;
       position: relative;
       img {
         width: 100%;
@@ -54,8 +65,8 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        height: 7rem;
-        width: 7rem;
+        height: $btn_radius;
+        width: $btn_radius;
         background: rgba(50, 50, 50, 0.74);
         z-index: 2;
         border-radius: 100%;
@@ -68,9 +79,9 @@
         transform: translate(-30%, -50%);
         width: 0;
         height: 0;
-        border-top: 15px solid transparent;
-        border-left: 30px solid #efefef;
-        border-bottom: 15px solid transparent;
+        border-top: $triangleSize solid transparent;
+        border-left: $triangleSize * 2 solid #efefef;
+        border-bottom: $triangleSize solid transparent;
         z-index: 3;
       }
     }
