@@ -12,6 +12,7 @@ class Home extends Component {
     console.log(process.env.REACT_APP_GOOGLE_API);
     const { isFirstLoad, firstLoad } = this.props;
     console.log(isFirstLoad);
+    console.log(isFirstLoad);
     if (isFirstLoad) {
       firstLoad();
       setTimeout(() => {

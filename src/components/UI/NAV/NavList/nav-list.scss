@@ -45,6 +45,18 @@
       @media (min-width: 768px) {
         width: auto;
       }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 111%;
+        transform: skewX(-18deg) translateX(-109%);
+        background: white;
+        transition: transform .3s ease-in-out;
+        z-index: -1;
+      }
       &:not(:last-child) {
         margin-bottom: 1rem;
         @media (min-width: 768px) {
@@ -56,11 +68,8 @@
         color: rgba(255, 255, 255, 1);
       }
       &.active {
-        //background: white;
         color: #000;
         @media (min-width: 768px) {
-          padding-left: 2rem;
-          padding-right: 3rem;
         }
         &::after {
           content: "";
@@ -68,10 +77,10 @@
           top: 0;
           left: 0;
           height: 100%;
-          width: 100%;
+          width: 111%;
           transform: skewX(-18deg) translateX(-4%);
           background: white;
-          transition: transform 0.15s ease-in-out;
+          transition: transform .3s ease-in-out;
           z-index: -1;
         }
       }

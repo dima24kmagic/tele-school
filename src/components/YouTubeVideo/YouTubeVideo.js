@@ -58,9 +58,6 @@ export default class YouTubeVideo extends Component {
           />
         ) : (
           <div className={thumbClassName} onClick={this.showVideo}>
-            <div className='video-data'>
-              <div className='video-name'>{videoTitle}</div>
-            </div>
             <img src={thumbPath} alt='thumbnail'/>
           </div>
         )}

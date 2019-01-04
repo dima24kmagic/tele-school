@@ -4,11 +4,20 @@ import history from "../store/history";
 import Home from "./Home/Home";
 import Footer from "./UI/Footer/Footer";
 import Nav from "./UI/NAV/Nav";
-import MediaCenter from "./Media/Media";
+import MediaCenter from "./Media/MediaCenter";
+import { getVideos } from "../utils/api";
 
 class App extends Component {
   state = {
-    isFirstLoad: true
+    isFirstLoad: true,
+    videos: null
+  };
+
+  componentWillMount = async () => {
+    const videos = await getVideos();
+    this.setState({
+      videos
+    });
   };
 
   onFirstLoad = () => {
@@ -17,7 +26,7 @@ class App extends Component {
     });
   };
   render() {
-    const { isFirstLoad } = this.state;
+    const { isFirstLoad, videos } = this.state;
     return (
       <div className="app">
         <Router history={history}>
@@ -29,7 +38,10 @@ class App extends Component {
                 <Home isFirstLoad={isFirstLoad} firstLoad={this.onFirstLoad} />
               )}
             />
-            <Route path="/media" component={MediaCenter} />
+            <Route
+              path="/media"
+              component={() => <MediaCenter videos={videos} />}
+            />
             <Nav toggleAperture={this.toggleAperture} />
             <Footer />
           </Fragment>

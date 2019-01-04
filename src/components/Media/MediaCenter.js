@@ -1,37 +1,27 @@
 import React, { Component } from "react";
-import axios from "axios";
 import "./media.scss";
 import YouTubeVideo from "../YouTubeVideo/YouTubeVideo";
-
-const API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
-console.log(API_KEY);
-const PLAYLIST_ID = "PLF9nSOO5SmunZVbDYXotvPiZX3D8RwOjY";
-const CHANNEL_ID = "UCjGcnm6uamUtmvG4pGPgigA";
+import { getVideos } from "../../utils/api";
 
 class MediaCenter extends Component {
   state = {
     videos: null
   };
-  componentWillMount = async () => {
-    const videos = await this.getVideos();
-    console.log(videos);
-    this.setState({
-      videos
-    });
-  };
+  componentWillMount() {
+    this.getVideosIfNotInProps();
+  }
 
-  getVideos = async () => {
-    return (await axios.get(
-      "https://www.googleapis.com/youtube/v3/playlistItems",
-      {
-        params: {
-          part: "snippet",
-          key: API_KEY,
-          playlistId: PLAYLIST_ID,
-          maxResults: 50
-        }
-      }
-    )).data.items;
+  getVideosIfNotInProps = async () => {
+    if (!this.props.videos) {
+      const videos = await getVideos();
+      this.setState({
+        videos
+      });
+    } else {
+      this.setState({
+        videos: this.props.videos
+      });
+    }
   };
 
   getHighestThumbnailUrl = thumbnails => {
@@ -63,6 +53,7 @@ class MediaCenter extends Component {
                     thumbPath={thumbPath}
                     videoTitle={title}
                   />
+                  <div className="video__title">{title}</div>
                 </div>
               );
             })}
