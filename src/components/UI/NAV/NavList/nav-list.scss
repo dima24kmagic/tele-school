@@ -21,6 +21,7 @@
     flex-direction: row;
     background: linear-gradient(to left bottom, #000000, #080a0f);
     padding-right: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 
   .items-wrapper {
@@ -54,7 +55,7 @@
         width: 111%;
         transform: skewX(-18deg) translateX(-109%);
         background: white;
-        transition: transform .3s ease-in-out;
+        transition: transform 0.2s ease-out;
         z-index: -1;
       }
       &:not(:last-child) {
@@ -80,7 +81,7 @@
           width: 111%;
           transform: skewX(-18deg) translateX(-4%);
           background: white;
-          transition: transform .3s ease-in-out;
+          transition: transform 0.2s ease-out;
           z-index: -1;
         }
       }

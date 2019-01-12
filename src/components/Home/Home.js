@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Element, Link } from "react-scroll";
+import { ContextMenu, ContextMenuTrigger, MenuItem } from "react-contextmenu";
 import "./home.scss";
 import { AnimateHomeIntro } from "./animations";
 
@@ -21,6 +22,11 @@ class Home extends Component {
     }
   }
 
+  handleCMClick = (e, data) => {
+    e.preventDefault();
+    console.log(data);
+  };
+
   render() {
     const windowWidth = window.innerWidth;
     const scrollOffsetBasedOnNavHeight = windowWidth <= 768 ? -20 : -70;
@@ -39,21 +45,42 @@ class Home extends Component {
             <p className="display-1 text-light intro__words shadowed">
               Школьный телецентр
             </p>
-            <button className="intro__btn text-light shadowed">
-              <Link
-                to="content"
-                smooth={true}
-                duration={500}
-                offset={scrollOffsetBasedOnNavHeight}
-              >
+            <Link
+              to="content"
+              smooth={true}
+              duration={500}
+              offset={scrollOffsetBasedOnNavHeight}
+            >
+              <button className="intro__btn text-light shadowed">
                 Узнать больше
-              </Link>
-            </button>
+              </button>
+            </Link>
           </div>
         </div>
         <Element name="content">
           <div className="container info-content" id="home-anchor">
-            <h1>Немного о нас:</h1>
+            <ContextMenuTrigger id="about_us">
+              <h1>Немного о нас:</h1>
+            </ContextMenuTrigger>
+            <ContextMenu id="about_us">
+              <MenuItem
+                data={{ test: "SUCK", 1: 2 }}
+                onClick={this.handleCMClick}
+              >
+                <div
+                  style={{
+                    width: "auto",
+                    height: "auto",
+                    background: "#000",
+                    color: "white",
+                    padding: "2rem 6rem"
+                  }}
+                  onClick={this.handleCMClick}
+                >
+                  WOOOOOW
+                </div>
+              </MenuItem>
+            </ContextMenu>
             <p>
               В нашей школе с 1981 года успешно работает школьное телевидение.
               За годы существования нашего телецентра накоплен большой аудио и

@@ -42,6 +42,18 @@ class App extends Component {
               path="/media"
               component={() => <MediaCenter videos={videos} />}
             />
+            <Route
+              path="/history"
+              component={() => <div className="content" />}
+            />
+            <Route
+              path="/achieves"
+              component={() => <div className="content" />}
+            />
+            <Route
+              path="/4teachers"
+              component={() => <div className="content" />}
+            />
             <Nav toggleAperture={this.toggleAperture} />
             <Footer />
           </Fragment>
