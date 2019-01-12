@@ -13,6 +13,10 @@
 
   .data {
     display: flex;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
   }
 
   &__info {
@@ -21,15 +25,26 @@
     align-items: center;
     color: rgba(#fff, 0.8);
     padding: 0 3rem;
+    @media (max-width: 768px) {
+      padding: 2rem 0;
+    }
     &:not(:last-child) {
       border-right: 1px solid rgba(#fff, 0.2);
+      @media (max-width: 768px) {
+        border-right: none;
+        border-bottom: 1px solid rgba(#fff, 0.2);
+      }
     }
     &__title {
       color: rgba(#fff, 0.8);
       font-weight: bold;
       font-size: 2rem;
+      margin-bottom: 1rem;
     }
     &__row {
+      @media (max-width: 768px) {
+        text-align: center;
+      }
     }
   }
 }
