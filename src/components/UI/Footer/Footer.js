@@ -33,7 +33,10 @@ function Footer() {
         <div className="footer__info footer__info--contacts">
           <div className="footer__info__title">Контактные данные:</div>
           {phonesData.map(({ holder, num }) => (
-            <div className="footer__info__row">{`${holder}: ${num}`}</div>
+            <div
+              key={num}
+              className="footer__info__row"
+            >{`${holder}: ${num}`}</div>
           ))}
         </div>
         <div className="footer__info footer__info--social">

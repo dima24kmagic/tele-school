@@ -11,7 +11,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: url("./hero-img.jpg") no-repeat center;
+    background: url("https://vignette.wikia.nocookie.net/animal-jam-clans-1/images/5/54/Space-tumblr-wallpapers-full-hd.jpg/revision/latest?cb=20170828032855") no-repeat center;
     background-size: cover;
     z-index: -1;
     &__overlay {
@@ -31,6 +31,7 @@
     top: 0;
     left: 0;
     z-index: 1000;
+    //background: #000;
     display: none;
     &--1,
     &--2 {

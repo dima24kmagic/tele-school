@@ -8,22 +8,22 @@ import MediaCenter from "./Media/MediaCenter";
 import { getVideos } from "../utils/api";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.isFirstLoad = true;
+    this.videos = [];
+  }
   state = {
     isFirstLoad: true,
     videos: null
   };
 
   componentWillMount = async () => {
-    const videos = await getVideos();
-    this.setState({
-      videos
-    });
+    this.videos = await getVideos();
   };
 
   onFirstLoad = () => {
-    this.setState({
-      isFirstLoad: false
-    });
+    this.isFirstLoad = false;
   };
   render() {
     const { isFirstLoad, videos } = this.state;
@@ -35,12 +35,15 @@ class App extends Component {
               exact
               path="/"
               component={() => (
-                <Home isFirstLoad={isFirstLoad} firstLoad={this.onFirstLoad} />
+                <Home
+                  isFirstLoad={this.isFirstLoad}
+                  firstLoad={this.onFirstLoad}
+                />
               )}
             />
             <Route
               path="/media"
-              component={() => <MediaCenter videos={videos} />}
+              component={() => <MediaCenter videos={this.videos} />}
             />
             <Route
               path="/history"

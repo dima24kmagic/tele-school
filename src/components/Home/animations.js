@@ -35,13 +35,16 @@ export function AnimateNavClose() {
 }
 
 export function AnimateHomeIntro() {
+  console.log("ANIMATE");
   var shutterContainer = document.querySelector(".shutter");
   var shutterTop = document.querySelector(".shutter--1");
   var shutterBot = document.querySelector(".shutter--2");
   var introWords = document.querySelector(".intro__words");
-  var introBrn = document.querySelector(".intro__btn");
+  var introBtn = document.querySelector(".intro__btn");
   var tl = new TimelineLite();
-  tl.to(shutterContainer, 0, { display: "block" })
+  tl.to(shutterContainer, 0, {
+    display: "block"
+  })
     .fromTo(
       shutterTop,
       5,
@@ -78,10 +81,18 @@ export function AnimateHomeIntro() {
       "-=2"
     )
     .fromTo(
-      introBrn,
+      introBtn,
       1,
       { opacity: 0, transform: `translateY(5px)` },
       { opacity: 1, transform: `translateY(0)` },
       "-=1.6"
-    );
+    )
+    .to(shutterContainer, 0, {
+      display: "none"
+    });
+}
+
+export function animateImgSwipe(currentImgIndex, nextImgIndex) {
+  const images = document.querySelectorAll(".swipe-img");
+  console.log(images, images[currentImgIndex], images[nextImgIndex]);
 }

@@ -1,40 +1,30 @@
 import React, { Component, Fragment } from "react";
 import { Element, Link } from "react-scroll";
-import { ContextMenu, ContextMenuTrigger, MenuItem } from "react-contextmenu";
 import "./home.scss";
 import { AnimateHomeIntro } from "./animations";
-
-const test = {
-  p: "HIIII"
-};
+import Carousel from "../Carousel/Carousel";
 
 class Home extends Component {
   componentDidMount() {
-    console.log(process.env.REACT_APP_GOOGLE_API);
     const { isFirstLoad, firstLoad } = this.props;
     console.log(isFirstLoad);
     console.log(isFirstLoad);
     if (isFirstLoad) {
-      firstLoad();
       setTimeout(() => {
         AnimateHomeIntro();
+        firstLoad();
       }, 0);
     }
   }
 
-  handleCMClick = (e, data) => {
-    e.preventDefault();
-    console.log(data);
-  };
-
   render() {
     const windowWidth = window.innerWidth;
     const scrollOffsetBasedOnNavHeight = windowWidth <= 768 ? -20 : -70;
-    console.log(windowWidth, scrollOffsetBasedOnNavHeight);
     return (
       <Fragment>
         <div className="home">
           <div className="bg">
+            <Carousel />
             <div className="bg__overlay" />
           </div>
           <div className="shutter">
@@ -59,28 +49,7 @@ class Home extends Component {
         </div>
         <Element name="content">
           <div className="container info-content" id="home-anchor">
-            <ContextMenuTrigger id="about_us">
-              <h1>Немного о нас:</h1>
-            </ContextMenuTrigger>
-            <ContextMenu id="about_us">
-              <MenuItem
-                data={{ test: "SUCK", 1: 2 }}
-                onClick={this.handleCMClick}
-              >
-                <div
-                  style={{
-                    width: "auto",
-                    height: "auto",
-                    background: "#000",
-                    color: "white",
-                    padding: "2rem 6rem"
-                  }}
-                  onClick={this.handleCMClick}
-                >
-                  WOOOOOW
-                </div>
-              </MenuItem>
-            </ContextMenu>
+            <h1>Немного о нас:</h1>
             <p>
               В нашей школе с 1981 года успешно работает школьное телевидение.
               За годы существования нашего телецентра накоплен большой аудио и
