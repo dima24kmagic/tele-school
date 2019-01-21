@@ -8,23 +8,23 @@ self.__precacheManifest = [
     "url": "/tele-school/static/js/runtime~main.2d6a1fcc.js"
   },
   {
-    "revision": "67999dc5860af811f874",
-    "url": "/tele-school/static/js/main.67999dc5.chunk.js"
+    "revision": "a93a1551f10cc8b229a5",
+    "url": "/tele-school/static/js/main.a93a1551.chunk.js"
   },
   {
     "revision": "9bf618130c141acfd82b",
     "url": "/tele-school/static/js/1.9bf61813.chunk.js"
   },
   {
-    "revision": "67999dc5860af811f874",
-    "url": "/tele-school/static/css/main.94b891dc.chunk.css"
+    "revision": "a93a1551f10cc8b229a5",
+    "url": "/tele-school/static/css/main.7fa844c1.chunk.css"
   },
   {
     "revision": "9bf618130c141acfd82b",
     "url": "/tele-school/static/css/1.b34cf89c.chunk.css"
   },
   {
-    "revision": "749c4340fcc615e5a7ab9e261f822f1e",
+    "revision": "d98def2bdbd9b769f6a9a3055c55df81",
     "url": "/tele-school/index.html"
   }
 ];
