@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import "./carousel.scss";
 import { animateImgSwipe } from "../Home/animations";
 
@@ -8,6 +8,7 @@ class Carousel extends Component {
     this.currentImgIndex = 0;
     this.nextImgIndex = 1;
     this.isNowLastImgShowing = false;
+    this.interval = null;
   }
   state = {
     currentImgIndex: 0,
@@ -34,26 +35,27 @@ class Carousel extends Component {
   };
 
   componentDidMount() {
-    setInterval(() => {
+    this.interval = setInterval(() => {
+      console.log("interval");
       const { currentImgIndex, nextImgIndex } = this.state;
       if (!this.isLastImg(currentImgIndex)) {
+        animateImgSwipe(currentImgIndex, nextImgIndex);
         this.setState({
           currentImgIndex: currentImgIndex + 1,
           nextImgIndex: nextImgIndex + 1
         });
-      } else if (this.isNextLasttImg(nextImgIndex)) {
-        this.setState({
-          currentImgIndex: currentImgIndex,
-          nextImgIndex: 0
-        });
       } else {
+        animateImgSwipe(currentImgIndex, 0);
         this.setState({
           currentImgIndex: 0,
           nextImgIndex: 1
         });
       }
-      // animateImgSwipe(currentImgIndex, nextImgIndex);
-    }, 3000);
+    }, 6000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   isLastImg = currentImgIndex => {
@@ -62,7 +64,7 @@ class Carousel extends Component {
     return imagesLength - 1 === currentImgIndex;
   };
 
-  isNextLasttImg = nextImgIndex => {
+  isNextLastImg = nextImgIndex => {
     const { images } = this.state;
     const imagesLength = images.length;
     return imagesLength - 1 === nextImgIndex;
@@ -79,7 +81,6 @@ class Carousel extends Component {
       <div className="react-carousel">
         {images &&
           images.map((img, index) => {
-            console.log({ index, currentImgIndex, nextImgIndex });
             const isCurrent = index === currentImgIndex;
             const isNext = index === nextImgIndex;
             let className = "";
@@ -89,10 +90,11 @@ class Carousel extends Component {
               className = "swipe-img swipe-img__next";
             } else if (currentImgIndex === images.length) {
               className = "swipe-img swipe-img__next";
+            } else {
+              className = "swipe-img swipe-img__next";
             }
             return <img key={img.url} src={img.url} className={className} />;
           })}
-        {console.log("--------------------------------------------")}
         {/*<img className="swipe-img" src={currentImage.url} />
 
             <img className="swipe-img swipe-img__next" src={nextImage.url} />*/}

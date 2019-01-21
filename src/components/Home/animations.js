@@ -94,5 +94,31 @@ export function AnimateHomeIntro() {
 
 export function animateImgSwipe(currentImgIndex, nextImgIndex) {
   const images = document.querySelectorAll(".swipe-img");
-  console.log(images, images[currentImgIndex], images[nextImgIndex]);
+  const currentImg = images[currentImgIndex];
+  const nextImg = images[nextImgIndex];
+  const duration = 3;
+  TweenLite.fromTo(
+    nextImg,
+    duration,
+    {
+      transform: `translateX(100%)`,
+      ease: Power4.easeInOut
+    },
+    {
+      transform: `translateX(0%)`,
+      ease: Power4.easeInOut
+    }
+  );
+  TweenLite.fromTo(
+    currentImg,
+    duration,
+    {
+      transform: `translateX(0%)`,
+      ease: Power4.easeInOut
+    },
+    {
+      transform: `translateX(-100%)`,
+      ease: Power4.easeInOut
+    }
+  );
 }

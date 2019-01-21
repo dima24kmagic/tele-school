@@ -12,7 +12,7 @@ class MediaCenter extends Component {
   }
 
   getVideosIfNotInProps = async () => {
-    if (!this.props.videos) {
+    if (this.props.videos.length === 0) {
       const videos = await getVideos();
       this.setState({
         videos
@@ -36,7 +36,21 @@ class MediaCenter extends Component {
     const { videos } = this.state;
     return (
       <div className="media-wrapper">
-        <div className="display-1">Школьные видео</div>
+        {/*<div className="display-1">Школьные видео</div>*/}
+        <div className="intro-media">
+          <div className="intro-text intro-text__light">Свет,</div>
+          <div className="intro-text intro-text__camera">Камера,</div>
+          <div className="intro-text intro-text__motor">Мотор!</div>
+        </div>
+
+        <div className="caption-text">
+          Наши дети так-же .... Напишите здесь какой-то текст, что у них есть
+          ютюб канал
+        </div>
+
+        <div className="yt-video-title">
+          <span className="yt">Youtube </span>Видео
+        </div>
         <div className="videos">
           {videos &&
             videos.map(video => {
