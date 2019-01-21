@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/tele-school/precache-manifest.5750333e926bef3899b7f7c472e7065e.js"
+  "/tele-school/precache-manifest.17d0ddde8b427f579ff8e76562892d2d.js"
 );
 
 workbox.clientsClaim();
